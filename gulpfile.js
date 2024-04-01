@@ -21,9 +21,10 @@ function compileSass() {
 
 exports.sass = compileSass;
 exports.minify = minifyJs;
-exports.images = minifyImages;
 
-exports.default = function() {
+exports.default = gulp.parallel(compileSass, minifyJs);
+
+exports.watch = function() {
     gulp.watch('./src/styles/*.scss', { ignoreInitial: false }, gulp.series(compileSass));
     gulp.watch('./src/scripts/*.js', { ignoreInitial: false }, gulp.series(minifyJs));
 }
