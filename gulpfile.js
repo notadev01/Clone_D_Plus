@@ -5,7 +5,7 @@ const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 
 function minifyImages() {
-    return gulp.src('./src/images/*')
+    return gulp.src('./src/images/**/*')
         .pipe(imagemin())
         .pipe(gulp.dest('./dist/images'))
 }
@@ -33,5 +33,5 @@ exports.images = minifyImages;
 exports.default = function() {
     gulp.watch('./src/styles/*.scss', { ignoreInitial: false }, gulp.series(compileSass));
     gulp.watch('./src/scripts/*.js', { ignoreInitial: false }, gulp.series(minifyJs));
-    gulp.watch('./src/images/*', { ignoreInitial: false }, gulp.series(minifyImages));
+    // gulp.watch('./src/images/**/*', { ignoreInitial: false }, gulp.series(minifyImages));
 }
