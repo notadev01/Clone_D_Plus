@@ -51,7 +51,7 @@ exports.default = gulp.parallel(compileSass, minifyJs, compressImages, copyFonts
 exports.watch = function () {
     gulp.watch('./src/styles/*.scss', { ignoreInitial: false }, gulp.series(compileSass));
     gulp.watch('./src/scripts/*.js', { ignoreInitial: false }, gulp.series(minifyJs));
-    gulp.watch('./assets/images/**/*', { ignoreInitial: false }, gulp.series(compressImages));
+    gulp.watch('./src/images/**/*', { ignoreInitial: false }, gulp.series(compressImages));
     gulp.watch('./assets/fonts/*', { ignoreInitial: false }, gulp.series(copyFonts));
     gulp.watch('./index.html', { ignoreInitial: false }, gulp.series(replaceHTML));
 }
