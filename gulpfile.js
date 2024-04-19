@@ -31,7 +31,7 @@ function compressImages() {
 function replaceHTML() {
     return gulp.src('./index.html')
         .pipe(replace('dist/', './'))
-        .pipe(replace('assets/images', './images'))
+        .pipe(replace('src/', './'))
         .pipe(gulp.dest('dist/'))
 }
 
